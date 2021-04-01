@@ -5,8 +5,8 @@ import java.util.List;
 
 public class Trainer implements Exercise {
 
-    private List<Viewer> viewers;
-    private String exercise;
+    public List<Viewer> viewers;
+    public String exercise;
 
     public Trainer() {
         this.viewers = new ArrayList<>();
@@ -40,6 +40,7 @@ public class Trainer implements Exercise {
     }
 
     public void setExercise(String exercise) {
+        System.out.println("Trainer has started doing " + exercise);
         this.exercise = exercise;
         this.notifyViewers();
     }

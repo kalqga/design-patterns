@@ -7,12 +7,17 @@ public class ViewerMain {
         Instructor instructor = new Instructor();
         Camera camera = new Camera();
         Command startRecording = new CameraOnCommand(camera);
+        Command stopRecording = new CameraOffCommand(camera);
 
         instructor.setCommand(startRecording);
-        instructor.startRecording();
+        instructor.record();
+
 
 
         Trainer trainer = new Trainer();
+
+
+
         Viewer vie1 = new ExerciseViewer("Yotsuba");
         Viewer vie2 = new ExerciseViewer("Miku");
         Viewer vie3 = new ExerciseViewer("Nino");
@@ -22,6 +27,13 @@ public class ViewerMain {
         trainer.watch(vie2);
         trainer.watch(vie3);
 
-        trainer.setExercise("Deadlift");
+        instructor.setExercise("Stani");
+        trainer.setExercise(instructor.getExercise());
+
+        instructor.setExercise("Legni");
+        trainer.setExercise(instructor.getExercise());
+
+        instructor.setCommand(stopRecording);
+        instructor.record();
     }
 }
